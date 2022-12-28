@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 14:35:44 by eboulhou         ###   ########.fr       */
+/*   Created: 2022/10/12 12:38:48 by eboulhou          #+#    #+#             */
+/*   Updated: 2022/10/15 12:41:36 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
-
-void show_wind(char **mat, int height, int width);
-
-#endif
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd (n / 10, fd);
+	}
+	ft_putchar_fd (n % 10 + 48, fd);
+}

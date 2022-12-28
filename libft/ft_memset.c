@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 14:35:44 by eboulhou         ###   ########.fr       */
+/*   Created: 2022/09/29 16:47:57 by eboulhou          #+#    #+#             */
+/*   Updated: 2022/10/17 17:18:54 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
+void	*ft_memset(void *b, int c, unsigned int len)
+{
+	int	l;
 
-void show_wind(char **mat, int height, int width);
-
-#endif
+	l = 0;
+	while (l < (int)len)
+	{
+		((char *)b)[l] = c;
+		l++;
+	}
+	return (b);
+}

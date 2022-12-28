@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 14:35:44 by eboulhou         ###   ########.fr       */
+/*   Created: 2022/10/18 18:18:17 by eboulhou          #+#    #+#             */
+/*   Updated: 2022/10/20 09:44:51 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*newl;
+	t_list	*tmp;
 
-void show_wind(char **mat, int height, int width);
-
-#endif
+	newl = NULL;
+	while (lst)
+	{
+		tmp = ft_lstnew (f (lst->content));
+		if (!tmp)
+		{
+			ft_lstclear (&newl, del);
+			return (NULL);
+		}
+		ft_lstadd_back (&newl, tmp);
+		lst = lst->next;
+	}
+	return (newl);
+}

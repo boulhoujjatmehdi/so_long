@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 14:35:44 by eboulhou         ###   ########.fr       */
+/*   Created: 2022/10/01 10:33:27 by eboulhou          #+#    #+#             */
+/*   Updated: 2022/10/17 16:55:52 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
-
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
-
-void show_wind(char **mat, int height, int width);
-
-#endif
+int	ft_toupper(int c )
+{
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
+}

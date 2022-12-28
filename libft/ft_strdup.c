@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 14:35:44 by eboulhou         ###   ########.fr       */
+/*   Created: 2022/10/06 16:56:30 by eboulhou          #+#    #+#             */
+/*   Updated: 2022/10/17 17:27:26 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
+char	*ft_strdup(const char *s1)
+{
+	int		size;
+	char	*str;
 
-void show_wind(char **mat, int height, int width);
-
-#endif
+	size = ft_strlen(s1)+1;
+	str = (char *)malloc(size);
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s1, size);
+	return (str);
+}

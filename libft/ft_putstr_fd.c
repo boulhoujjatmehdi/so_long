@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 14:35:44 by eboulhou         ###   ########.fr       */
+/*   Created: 2022/10/12 11:46:59 by eboulhou          #+#    #+#             */
+/*   Updated: 2022/10/17 17:17:24 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	len;
 
-void show_wind(char **mat, int height, int width);
-
-#endif
+	if (s)
+	{
+		len = ft_strlen(s);
+		write(fd, s, len);
+	}
+}

@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 14:35:44 by eboulhou         ###   ########.fr       */
+/*   Created: 2022/10/18 17:21:02 by eboulhou          #+#    #+#             */
+/*   Updated: 2022/10/20 09:43:52 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*temp;
+	t_list	*t2;
 
-void show_wind(char **mat, int height, int width);
-
-#endif
+	if (!lst || !del)
+		return ;
+	t2 = *lst;
+	temp = t2;
+	while (temp)
+	{
+		temp = t2->next;
+		ft_lstdelone(t2, del);
+		t2 = temp;
+	}
+	*lst = NULL;
+}

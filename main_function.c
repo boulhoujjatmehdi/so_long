@@ -6,12 +6,13 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:13 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 13:30:37 by eboulhou         ###   ########.fr       */
+/*   Updated: 2022/12/28 14:49:15 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "./gnl/get_next_line.h"
+
 
 int get_pos(char **mat, char c, int *pos);
 
@@ -147,6 +148,67 @@ int eat_till_exit(char **mat , int pos1 , int pos2)
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main(int ac,char **argv)
 {
     
@@ -159,26 +221,19 @@ int main(int ac,char **argv)
     fd = open(argv[1] , O_RDONLY);
     matrix = (char **)malloc(sizeof (char *) * (n_line + 1));
     set_matrix(fd , matrix);
-    
-    printf("%s",matrix[0]);
-    printf("%s",matrix[1]);
-    printf("%s",matrix[2]);
-    printf("%s",matrix[3]);
-    printf("%s",matrix[4]);
-    printf("%s",matrix[5]);
-    
     if(!ch_wal_com(matrix, n_line , ftn_strlen(matrix[0])))
         return 0;
     int pos[2];
     if(!(get_pos(matrix, 'E', pos)) || !get_pos(matrix, 'P', pos))
         return 1;
     eat_till_exit(matrix,pos[0] , pos[1]);
-    // if(get_pos(matrix, 'E', pos) || get_pos(matrix, 'C',pos))
-    //     return 2;
-    printf("%s",matrix[0]);
-    printf("%s",matrix[1]);
-    printf("%s",matrix[2]);
-    printf("%s",matrix[3]);
-    printf("%s",matrix[4]);
-    printf("%s",matrix[5]);
+    if(get_pos(matrix, 'E', pos) || get_pos(matrix, 'C',pos))
+        return 2;
+    show_wind();
+    // printf("\n%s",matrix[0]);
+    // printf("%s",matrix[1]);
+    // printf("%s",matrix[2]);
+    // printf("%s",matrix[3]);
+    // printf("%s",matrix[4]);
+    // printf("%s",matrix[5]);
 }

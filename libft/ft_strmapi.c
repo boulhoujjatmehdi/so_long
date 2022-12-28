@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 14:35:44 by eboulhou         ###   ########.fr       */
+/*   Created: 2022/10/11 13:51:40 by eboulhou          #+#    #+#             */
+/*   Updated: 2022/10/17 17:09:41 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	int		i;
+	int		len;
+	char	*ret;
 
-void show_wind(char **mat, int height, int width);
-
-#endif
+	if (!s)
+		return (0);
+	i = 0;
+	len = ft_strlen(s);
+	ret = (char *)ft_calloc(len + 1, sizeof(char));
+	if (!ret)
+		return (0);
+	while (s[i])
+	{
+		ret[i] = f(i, s[i]);
+		i++;
+	}
+	return (ret);
+}

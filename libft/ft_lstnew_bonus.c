@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 14:35:44 by eboulhou         ###   ########.fr       */
+/*   Created: 2022/10/15 18:40:24 by eboulhou          #+#    #+#             */
+/*   Updated: 2022/10/20 09:45:02 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new_t_list;
 
-void show_wind(char **mat, int height, int width);
-
-#endif
+	new_t_list = (t_list *)malloc(sizeof(t_list));
+	if (!new_t_list)
+		return (0);
+	new_t_list->content = content;
+	new_t_list->next = NULL;
+	return (new_t_list);
+}

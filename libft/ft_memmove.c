@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 14:35:44 by eboulhou         ###   ########.fr       */
+/*   Created: 2022/09/29 21:19:26 by eboulhou          #+#    #+#             */
+/*   Updated: 2022/10/15 15:56:20 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
+void	*ft_memmove(void *dest, const void *src, unsigned int n)
+{
+	char	*n_dest;
+	char	*n_src;
 
-void show_wind(char **mat, int height, int width);
-
-#endif
+	if ((!dest && !src) || !n)
+		return (dest);
+	if (dest < src)
+		ft_memcpy (dest, src, n);
+	else
+	{
+		n_dest = (char *)dest;
+		n_src = (char *)src;
+		while (n--)
+			n_dest[n] = n_src[n];
+	}
+	return (dest);
+}
