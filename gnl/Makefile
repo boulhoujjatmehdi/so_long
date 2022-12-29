@@ -15,6 +15,6 @@ clean:
 	rm -rf $(OBJ)
 
 fclean:clean
-	rm -rf $(OBJ)
+	rm -rf $(NAME)
 
 re: fclean all

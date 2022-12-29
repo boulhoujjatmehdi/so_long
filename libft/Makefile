@@ -17,7 +17,7 @@ $(NAME):$(OBJ)
 bonus:$(BOBJ)
 	ar -rc $(NAME) $(BOBJ)
 clean:
-	rm -f *.o
+	rm -rf *.o
 fclean:clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 re:fclean all
