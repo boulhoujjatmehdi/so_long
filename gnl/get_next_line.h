@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:03:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/28 15:27:22 by eboulhou         ###   ########.fr       */
+/*   Updated: 2022/12/30 20:59:20 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@
 
 char	*get_next_line(int fd);
 char	*ft_strjoin_gnl(char *s1, char *s2);
+int	    ft_strlen(char *str);
 
-#endif  
+#endif

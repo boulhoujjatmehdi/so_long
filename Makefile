@@ -1,25 +1,25 @@
 CC = cc -Wall -Werror -Wextra
-SRC = main_function.c graphical.c
+SRC = main_function.c graphical.c events.c
 NAME = so_long
 GNL = gnl
-LBT = libft
+PRT = printf
 MLX = -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME) 
 
 $(NAME): $(SRC) 
-	make -C libft
+	make -C printf
 	make -C gnl
-	$(CC) $(SRC) ./gnl/get_next_line.a $(MLX)  -o $@
+	$(CC) $(SRC) ./printf/libftprintf.a ./gnl/get_next_line.a $(MLX)  -o $@
 
 clean:
 	make -C $(GNL) clean
-	make -C $(LBT) clean
+	make -C $(PRT) clean
 	rm -rf *.o
 
 fclean: clean
 	make -C $(GNL) fclean
-	make -C $(LBT) fclean
+	make -C $(PRT) fclean
 	rm -rf $(NAME)
 
 re: fclean all
