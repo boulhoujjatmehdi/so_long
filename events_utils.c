@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   events_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 16:03:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/01 12:24:00 by eboulhou         ###   ########.fr       */
+/*   Created: 2023/01/01 12:05:06 by eboulhou          #+#    #+#             */
+/*   Updated: 2023/01/01 12:05:39 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "so_long.h"
 
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
-# include <stdio.h>
-# include <stdlib.h>
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
-# endif
+int	key_hook(int key, t_mlx *smlx)
+{
+	int	check;
 
-char	*get_next_line(int fd);
-char	*ft_strjoin_gnl(char *s1, char *s2);
-int		ft_strlen(char *str);
-
-#endif
+	if (key == 53)
+	{
+		exit(0);
+	}
+	check = move_to(smlx, key);
+	if (check == 69)
+	{
+		exit(0);
+	}
+	return (check);
+}

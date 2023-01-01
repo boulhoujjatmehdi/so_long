@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:29:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/31 20:24:36 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/01 12:12:32 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@ void	put_img(void *mlx, void *win, void *imgp, t_xjz xx)
 {
 	if (imgp)
 	{
-		mlx_put_image_to_window(mlx, win, imgp, xx.j *50, xx.i *50);
+		mlx_put_image_to_window(mlx, win, imgp, xx.j * 50, xx.i * 50);
 		mlx_destroy_image(mlx, imgp);
 	}
 		imgp = NULL;
 }
-void put_player(t_mlx smlx)
+
+void	put_player(t_mlx s)
 {
-	void *img;
-	int i;
-	img= mlx_xpm_file_to_image(smlx.mlx, "./im/P.xpm",&i, &i);
-	mlx_put_image_to_window(smlx.mlx, smlx.win, img, smlx.pos[1] * 50, smlx.pos[0] * 50);
+	void	*img;
+	int		i;
+
+	img = mlx_xpm_file_to_image(s.mlx, "./im/P.xpm", &i, &i);
+	mlx_put_image_to_window(s.mlx, s.win, img, s.pos[1] * 50, s.pos[0] * 50);
 }
 
 void	put_walls(t_mlx s)

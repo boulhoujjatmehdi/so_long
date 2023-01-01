@@ -6,12 +6,11 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:18:58 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/12/31 20:28:04 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/01 12:07:35 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdlib.h>
 
 int	get_nb(char **mat, char c)
 {
@@ -34,7 +33,7 @@ int	get_nb(char **mat, char c)
 	}
 	return (nb);
 }
-// this is where we left it-_-*******************************-*******************************-*******************************-*******************************-*******************************-*******************************
+
 int	check_next(char **mat, char c)
 {
 	int	pos[2];
@@ -48,7 +47,7 @@ int	check_next(char **mat, char c)
 	}
 	if (c == 'E' && get_nb(mat, 'C'))
 	{
-		return (0);
+		return (55);
 	}
 	if (c == 'X')
 	{
@@ -57,7 +56,7 @@ int	check_next(char **mat, char c)
 	return (1);
 }
 
-int  put_components(int i, int j, t_mlx *smx)
+int	put_components(int i, int j, t_mlx *smx)
 {
 	int			check;
 	static int	g_counter = 1;
@@ -66,8 +65,8 @@ int  put_components(int i, int j, t_mlx *smx)
 	if (check)
 	{
 		ft_printf("move : %d\n", g_counter++);
-		smx->mat[smx->pos[0]][smx->pos[1]] = '0';
-		smx->mat[smx->pos[0] + j][smx->pos[1] + i] = 'P';
+		if (check != 55)
+			smx->mat[smx->pos[0] + j][smx->pos[1] + i] = '0';
 		smx->pos[0] += j;
 		smx->pos[1] += i;
 		put_bg(*smx);
@@ -85,8 +84,6 @@ int	move_to(t_mlx *smlx, int k)
 	i = 0;
 	j = 0;
 	check = 0;
-	// get_pos(smlx->mat, 'P', pos);
-	// ft_printf("%d - %d -===-===- %d - %d\n", pos[0], pos[1], smlx->pos[0], smlx->pos[1]);
 	if ((!k && i--) || (k == 2 && i++) || (k == 1 && j++) || (k == 13 && j--))
 		(void)i;
 	if (i || j)
@@ -100,20 +97,4 @@ int	end_game(char **mat)
 {
 	free_mat(mat, 1);
 	exit(1);
-}
-
-int	key_hook(int key, t_mlx *smlx)
-{
-	int	check;
-
-	if (key == 53)
-	{
-		exit(0);
-	}
-	check = move_to(smlx, key);
-	if (check == 69)
-	{
-		exit(0);
-	}
-	return (check);
 }
