@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 12:05:06 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/02 09:30:55 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/02 10:14:39 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	get_nb(char **mat, char c)
 	return (nb);
 }
 
-int	check_next(char **mat, char c)
+int	check_next(char **mat, char c, int counter)
 {
 	int	pos[2];
 
@@ -51,7 +51,8 @@ int	check_next(char **mat, char c)
 	}
 	if (c == 'X')
 	{
-		return (69);
+		ft_printf("move : %d\nThe End.\n", counter);
+		exit(69);
 	}
 	return (1);
 }
@@ -59,16 +60,16 @@ int	check_next(char **mat, char c)
 int	put_components(int i, int j, t_mlx *smx)
 {
 	int			check;
-	static int	g_counter = 1;
+	static int	c = 1;
 
-	check = check_next(smx->mat, smx->mat[smx->pos[0] + j][smx->pos[1] + i]);
+	check = check_next(smx->mat, smx->mat[smx->pos[0] + j][smx->pos[1] + i], c);
 	if (check)
 	{
-		ft_printf("move : %d\n", g_counter++);
-		if (check != 55)
-			smx->mat[smx->pos[0] + j][smx->pos[1] + i] = '0';
+		ft_printf("move : %d\n", c++);
 		smx->pos[0] += j;
 		smx->pos[1] += i;
+		if (check != 55)
+			smx->mat[smx->pos[0]][smx->pos[1]] = '0';
 		put_bg(*smx);
 		put_walls(*smx);
 	}
@@ -92,9 +93,3 @@ int	move_to(t_mlx *smlx, int k)
 	}
 	return (check);
 }
-
-// int	end_game(char **mat)
-// {
-// 	free_mat(mat, 1);
-// 	exit(1);
-// }

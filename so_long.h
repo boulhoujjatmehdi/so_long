@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/02 09:34:23 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/02 09:47:27 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	put_bg(t_mlx smlx);
 
 //events
 int		key_hook(int key, t_mlx *smlx);
-// int		end_game(char **mat);
 int		key_hook(int key, t_mlx *smlx);
 int		move_to(t_mlx *smlx, int k);
 

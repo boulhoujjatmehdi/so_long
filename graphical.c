@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:29:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/02 09:41:16 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/02 10:50:44 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	put_walls(t_mlx s)
 		{
 			imgp = NULL;
 			if (s.mat[xx.i][xx.j] == '1')
-				imgp = mlx_xpm_file_to_image(s.mlx, "./im/N.xpm", &xx.z, &xx.z);
+				imgp = mlx_xpm_file_to_image(s.mlx, "./im/B.xpm", &xx.z, &xx.z);
 			else if (s.mat[xx.i][xx.j] == 'C')
 				imgp = mlx_xpm_file_to_image(s.mlx, "./im/C.xpm", &xx.z, &xx.z);
 			else if (s.mat[xx.i][xx.j] == 'E')
