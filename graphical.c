@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:29:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/01 18:24:30 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/02 09:41:16 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	put_player(t_mlx s)
 
 	img = mlx_xpm_file_to_image(s.mlx, "./im/P.xpm", &i, &i);
 	mlx_put_image_to_window(s.mlx, s.win, img, s.pos[1] * 50, s.pos[0] * 50);
+	mlx_destroy_image(s.mlx, img);
 }
 
 void	put_walls(t_mlx s)
@@ -90,6 +91,6 @@ void	show_wind(char **mat, int height, int width)
 	put_bg(smlx);
 	put_walls(smlx);
 	mlx_hook(smlx.win, 2, 0, key_hook, &smlx);
-	mlx_hook(smlx.win, 17, 0, end_game, smlx.mat);
+	mlx_hook(smlx.win, 17, 0, exit_prog, NULL);
 	mlx_loop(smlx.mlx);
 }

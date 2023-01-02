@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/01 17:48:44 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/02 09:34:23 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		ch_non_compo(char **mat);
 int		ch_wal_ec(char **matrix, int n_line, int l_line);
 int		get_number_of_lines(char *arg);
 void	free_mat(char **mat, int glob_free);
-void	exit_prog(char *str);
+int		exit_prog(char *str);
 void	set_matrix(int fd, char **matrix);
 
 //graphics
@@ -66,7 +66,7 @@ void	put_bg(t_mlx smlx);
 
 //events
 int		key_hook(int key, t_mlx *smlx);
-int		end_game(char **mat);
+// int		end_game(char **mat);
 int		key_hook(int key, t_mlx *smlx);
 int		move_to(t_mlx *smlx, int k);
 

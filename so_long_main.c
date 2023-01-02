@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 12:13:06 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/01 19:12:56 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/02 09:42:21 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,10 @@ void	free_mat(char **mat, int glob_free)
 	}
 }
 
-void	exit_prog(char *str)
+int	exit_prog(char *str)
 {
-	ft_printf("ERROR: %s\n", str);
+	if (str)
+		ft_printf("ERROR: %s\n", str);
 	exit(0);
 }
 
@@ -88,7 +89,7 @@ int	main(int ac, char **argv)
 	int		pos[2];
 
 	if (ac != 2)
-		return (0);
+		exit_prog("Name of program + Map name\n\"./so_long MapName.ber\"");
 	n_line = get_number_of_lines(argv[1]);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
