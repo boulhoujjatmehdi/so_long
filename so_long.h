@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/01 12:22:05 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/01 17:48:44 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 # define SO_LONG_H
 
 # include <mlx.h>
-# include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include <string.h>
-# include <stdlib.h>
 # include "./gnl/get_next_line.h"
 # include "./printf/ft_printf.h"
 

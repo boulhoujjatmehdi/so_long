@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_main.c                                     :+:      :+:    :+:   */
+/*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:13 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/01 12:14:31 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/01 20:49:33 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int	ch_non_compo(char **mat)
 		while (mat[i][j])
 		{
 			c = mat[i][j];
-			if (c == 'E')
-				found_e++;
+			if (c == 'E' && found_e++)
+				exit_prog("You must have one E on your map");
 			if (c != '1' && c != '0' && c != 'P' && c != '\n')
-				if ((c != 'E' && c != 'C') || found_e > 1)
+				if ((c != 'E' && c != 'C'))
 					return (0);
 			j++;
 		}
@@ -80,7 +80,15 @@ int	get_number_of_lines(char *arg)
 	int		counter;
 	char	*str;
 	int		fd;
+	t_xjz	x;
+	char	*ber;
 
+	ber = ".ber";
+	x.i = ft_strlen(arg) - 4;
+	x.j = 0;
+	while (arg[x.i])
+		if (arg[x.i++] != ber[x.j++])
+			exit_prog("File name must end with \".ber\". ");
 	fd = open(arg, O_RDONLY);
 	str = get_next_line(fd);
 	counter = 0;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   so_long_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 12:13:06 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/01 12:14:39 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/01 19:12:56 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ int	get_pos(char **mat, char c, int *pos)
 void	eat_till_exit(char **mat, int pos1, int pos2)
 {
 	mat[pos1][pos2] = 'P';
-	if (mat[pos1 + 1][pos2] != '1' && mat[pos1 + 1][pos2] != 'P' )
+	if (mat[pos1 + 1][pos2] != '1' && mat[pos1 + 1][pos2] != 'P')
 		eat_till_exit(mat, pos1 + 1, pos2);
 	if (mat[pos1][pos2 + 1] != '1' && mat[pos1][pos2 + 1] != 'P')
 		eat_till_exit(mat, pos1, pos2 + 1);
-	if (mat[pos1 - 1][pos2] != '1' && mat[pos1 - 1][pos2] != 'P' )
+	if (mat[pos1 - 1][pos2] != '1' && mat[pos1 - 1][pos2] != 'P')
 		eat_till_exit(mat, pos1 - 1, pos2);
 	if (mat[pos1][pos2 - 1] != '1' && mat[pos1][pos2 - 1] != 'P')
 		eat_till_exit(mat, pos1, pos2 - 1);
@@ -87,9 +87,12 @@ int	main(int ac, char **argv)
 	char	**matrix;
 	int		pos[2];
 
-	(void)ac;
+	if (ac != 2)
+		return (0);
 	n_line = get_number_of_lines(argv[1]);
 	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+		exit_prog("File name problem.");
 	matrix = (char **)malloc(sizeof (char *) * (n_line + 1));
 	set_matrix(fd, matrix);
 	ch_wal_ec(matrix, n_line, ftn_strlen(matrix[0]));

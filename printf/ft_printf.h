@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 11:39:12 by eboulhou          #+#    #+#             */
-/*   Updated: 2022/10/26 20:44:36 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/01 17:52:10 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdlib.h>
 
 int	ft_printf(const char *format, ...);
 int	ft_putchar(char c);

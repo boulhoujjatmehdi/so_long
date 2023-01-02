@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:29:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/01 12:12:32 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/01 18:24:30 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	put_img(void *mlx, void *win, void *imgp, t_xjz xx)
 		mlx_put_image_to_window(mlx, win, imgp, xx.j * 50, xx.i * 50);
 		mlx_destroy_image(mlx, imgp);
 	}
-		imgp = NULL;
+	imgp = NULL;
 }
 
 void	put_player(t_mlx s)
@@ -63,10 +63,10 @@ void	put_bg(t_mlx smlx)
 	int	ii;
 	int	jj;
 
-	ii = 0;
 	jj = 0;
 	while (smlx.height * 50 > jj)
 	{
+		ii = 0;
 		while (smlx.width * 50 > ii)
 		{
 			mlx_put_image_to_window(smlx.mlx, smlx.win, smlx.img, ii, jj);

@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:03:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/01 12:24:00 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/01 17:51:26 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <unistd.h>
 # include <fcntl.h>
-# include <string.h>
-# include <stdio.h>
 # include <stdlib.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
