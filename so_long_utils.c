@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:13 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/03 12:08:25 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:47:17 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,32 @@ int	ch_non_compo(char **mat)
 		}
 	i++;
 	}
+	return (1);
+}
+
+int	ch_wal_ecp(char **matrix, int n_line, int l_line)
+{
+	int	i;
+	int	len;
+	int	pos[2];
+
+	i = 0;
+	while (matrix[i])
+	{
+		len = ftn_strlen(matrix[i]);
+		if (len != l_line)
+			exit_prog("Your map is not Rectangular.");
+		if (matrix[i][len - 1] != '1' || matrix[i++][0] != '1')
+			exit_prog("Check your sides walls.");
+	}
+	i = 0;
+	while (matrix[0][i] && matrix[n_line - 1][i])
+		if (matrix[0][i] != '1' || matrix[n_line - 1][i++] != '1')
+			exit_prog("check your (top || bottom) wall.");
+	if ((!get_pos(matrix, 'E', pos)) || !(get_pos(matrix, 'C', pos)))
+		exit_prog("Check your components :\n -One 'E'\n -At least one 'C'.\n");
+	if (!ch_non_compo(matrix))
+		exit_prog("Check your map it contains unknown components.");
 	return (1);
 }
 
