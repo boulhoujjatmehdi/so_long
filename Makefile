@@ -1,5 +1,5 @@
 CC = cc -Wall -Werror -Wextra
-SRC = so_long_main.c so_long_utils.c graphical.c events.c events_utils.c
+SRC = so_long_main.c so_long_utils.c graphical.c graphical_utils.c events.c events_utils.c protect.c
 NAME = so_long
 GNL = gnl
 PRT = printf

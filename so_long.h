@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:57 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/02 09:47:27 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/03 11:22:56 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_xjz
 	int	j;
 	int	z;
 	int	t;
+	int	true;
 }t_xjz;
 
 typedef struct s_mlx
@@ -53,7 +54,7 @@ typedef struct s_mlx
 int		ftn_strlen(char *str);
 int		get_pos(char **mat, char c, int *pos);
 int		ch_non_compo(char **mat);
-int		ch_wal_ec(char **matrix, int n_line, int l_line);
+int		ch_wal_ecp(char **matrix, int n_line, int l_line);
 int		get_number_of_lines(char *arg);
 void	free_mat(char **mat, int glob_free);
 int		exit_prog(char *str);
@@ -63,10 +64,15 @@ void	set_matrix(int fd, char **matrix);
 void	show_wind(char **mat, int height, int width);
 void	put_walls(t_mlx smlx);
 void	put_bg(t_mlx smlx);
+void	free_game(t_mlx mlx);
 
 //events
 int		key_hook(int key, t_mlx *smlx);
 int		key_hook(int key, t_mlx *smlx);
 int		move_to(t_mlx *smlx, int k);
 
+//protect.c
+void	*ft_mlx_init(char **mat);
+void	*ft_new_window(t_mlx s);
+void	*ft_xpm_image(t_mlx *smlx, char *path);
 #endif

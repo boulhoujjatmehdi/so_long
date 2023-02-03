@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 12:13:06 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/02 09:42:21 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/03 11:22:56 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,10 @@ int	main(int ac, char **argv)
 	n_line = get_number_of_lines(argv[1]);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		exit_prog("File name problem.");
+		exit_prog("Map name problem.");
 	matrix = (char **)malloc(sizeof (char *) * (n_line + 1));
 	set_matrix(fd, matrix);
-	ch_wal_ec(matrix, n_line, ftn_strlen(matrix[0]));
+	ch_wal_ecp(matrix, n_line, ftn_strlen(matrix[0]));
 	if (!get_pos(matrix, 'P', pos))
 		exit_prog("Check the P int this map.");
 	eat_till_exit(matrix, pos[0], pos[1]);
